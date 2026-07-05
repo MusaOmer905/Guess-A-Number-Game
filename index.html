@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Guess The Number </title>
+<style>
+body{
+    background-image: url(https://tse3.mm.bing.net/th/id/OIP.rBLdw7z5W40Zu8ysTWwzPAHaE8?w=1350&h=900&rs=1&pid=ImgDetMain&o=7&rm=3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+}
+h2{
+background-color: blue;
+color: white;
+margin-top:0;
+}
+button{
+    background-color: lightgreen;
+    padding:5px;
+    border-radius: 7px;
+    border:none;
+}
+input{
+    width:10%;
+}
+    </style>
+</head>
+<body> 
+    <center>
+<h2> Guess the Number Game </h2>
+<h1> Guess a Number between 1 and 20 </h1>
+<input type="number" id="guess1" placeholder="Enter a guess" min="1" max="20"> 
+<button onclick="checkNumber()"> Sumbit Guess </button>
+<h3 id="result">  </h3>
+    </center>
+    <script>
+        // creating random numbers
+        let randomNumber = Math.floor(Math.random()*20)+1;
+function checkNumber(){
+    let guessednumber = Number(document.getElementById("guess1").value); 
+
+    if(!guessednumber){
+        document.getElementById("result").innerHTML = "Please enter a Number";
+        document.getElementById("result").style.color = "red";
+    }
+    else if(guessednumber === randomNumber){
+document.getElementById("result").innerHTML = "You guessed it correct";
+ document.getElementById("result").style.color = "lightgreen";
+    }
+    else if(guessednumber < randomNumber){
+document.getElementById("result").innerHTML = "Too low Try Again";
+ document.getElementById("result").style.color = "blue";
+    }
+    else{
+        document.getElementById("result").innerHTML = "Too High Try Lower";
+         document.getElementById("result").style.color = "blue"; 
+    }
+}
+
+        </script>
+    </body>
+    </html>
